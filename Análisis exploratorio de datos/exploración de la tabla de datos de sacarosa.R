@@ -8,7 +8,8 @@ if(!require(gtsummary)){install.packages("gtsummary")}
 if(!require(DataExplorer)){install.packages("DataExplorer")}
 if(!require(RcmdrMisc)){install.packages("RcmdrMisc")}
 if(!require(carData)){install.packages("carData")}
-
+if(!require(flextable)){install.packages("flextable")}
+if(!require(tidyverse)){install.packages("tidyverse")}
 
 # Importar la tabla de datos
 sacarosa<-read_excel("sacarosa.xlsx")
@@ -32,6 +33,12 @@ plot_boxplot(box1, by="muestra")
 
 # Medidas de resumen estadístico por categoría de muestra
 
-numSummary(sacarosa[,c("brix"), drop=F], groups=sacarosa$muestra,
+resumen<-numSummary(sacarosa[,c("brix"), drop=F], groups=sacarosa$muestra,
 statistics=c("mean","sd", "IQR", "skewness"))
+
+res1<-data.frame(resumen$table)
+tablaT <- flextable(res1)
+tablaT <- set_caption(tablaT, "Estadísticos de resumen") %>% 
+  theme_vanilla() %>% 
+  save_as_docx(path = "mitabla.docx")
 
