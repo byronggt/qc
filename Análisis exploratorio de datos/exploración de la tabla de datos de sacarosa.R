@@ -10,10 +10,15 @@ if(!require(RcmdrMisc)){install.packages("RcmdrMisc")}
 if(!require(carData)){install.packages("carData")}
 if(!require(flextable)){install.packages("flextable")}
 if(!require(tidyverse)){install.packages("tidyverse")}
+if(!require(skimr)){install.packages("skimr")}
 
 # Importar la tabla de datos
 sacarosa<-read_excel("sacarosa.xlsx")
 head(sacarosa)
+
+# Análisis exploratorio general de la tabla de datos
+sacarosa %>% skim()
+sacarosa %>% group_by(muestra) %>% skim()
 
 # Características de la tabla de datos
 introduce(sacarosa)
@@ -42,3 +47,8 @@ tablaT <- set_caption(tablaT, "Estadísticos de resumen") %>%
   theme_vanilla() %>% 
   save_as_docx(path = "mitabla.docx")
 
+# Construir tabla de resumen (ejemplo de mediana e IQR)
+sac1<- sacarosa %>% 
+    select(muestra,ph,pol) %>% 
+    tbl_summary(muestra) %>% 
+    add_n()
