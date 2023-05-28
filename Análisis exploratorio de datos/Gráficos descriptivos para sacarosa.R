@@ -1,3 +1,6 @@
+# Dr. Byron González
+# http://cete.fausac.gt
+
 if(!require(ggplot2)){install.packages("ggplot2")}
 if(!require(skimr)){install.packages("skimr")}
 if(!require(tidyverse)){install.packages("tidyverse")}
