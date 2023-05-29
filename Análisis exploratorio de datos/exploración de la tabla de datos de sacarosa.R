@@ -13,7 +13,7 @@ if(!require(flextable)){install.packages("flextable")}
 if(!require(tidyverse)){install.packages("tidyverse")}
 if(!require(skimr)){install.packages("skimr")}
 if(!require(explore)){install.packages("explore")}
-# Ejecutar una sola vez
+# Ejecutar las siguientes 2 líneas una sola vez
 install.packages("devtools")
 devtools::install_github("agstn/dataxray")
 
