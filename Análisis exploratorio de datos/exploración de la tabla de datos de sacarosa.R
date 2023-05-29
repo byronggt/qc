@@ -16,7 +16,6 @@ if(!require(explore)){install.packages("explore")}
 # Ejecutar una sola vez
 install.packages("devtools")
 devtools::install_github("agstn/dataxray")
-library(dataxray)
 
 # Importar la tabla de datos
 sacarosa<-read_excel("sacarosa.xlsx")
