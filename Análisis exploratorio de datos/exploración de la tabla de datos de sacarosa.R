@@ -13,7 +13,10 @@ if(!require(flextable)){install.packages("flextable")}
 if(!require(tidyverse)){install.packages("tidyverse")}
 if(!require(skimr)){install.packages("skimr")}
 if(!require(explore)){install.packages("explore")}
-
+# Ejecutar una sola vez
+install.packages("devtools")
+devtools::install_github("agstn/dataxray")
+library(dataxray)
 
 # Importar la tabla de datos
 sacarosa<-read_excel("sacarosa.xlsx")
@@ -91,3 +94,10 @@ sacarosa %>%
     output_dir  = "reporte/",
     output_file = "explore_plots.html"
   )
+
+# Data X-Ray ----
+
+# 1. Exploración sin grupos ----
+sacarosa %>%
+  make_xray() %>%
+  view_xray()
