@@ -80,7 +80,8 @@ sacarosa %>%
   explore(
     target = ph,
     var    = ph,
-    var2   = muestra
+    var2   = muestra,
+    col="green"
   )
 
 # * Reporte ----
