@@ -12,6 +12,8 @@ if(!require(carData)){install.packages("carData")}
 if(!require(flextable)){install.packages("flextable")}
 if(!require(tidyverse)){install.packages("tidyverse")}
 if(!require(skimr)){install.packages("skimr")}
+if(!require(explore)){install.packages("explore")}
+
 
 # Importar la tabla de datos
 sacarosa<-read_excel("sacarosa.xlsx")
@@ -53,3 +55,38 @@ sac1<- sacarosa %>%
     select(muestra,ph,pol) %>% 
     tbl_summary(muestra) %>% 
     add_n()
+
+# Otra descripción de la tabla de datos
+sacarosa %>% explore()
+
+sacarosa %>% select(muestra) %>% explore()
+
+# * Descripción ----
+
+sacarosa %>% describe_all()
+
+sacarosa %>% describe_cat(muestra)
+
+# * Exploración de todas las variables ----
+
+sacarosa %>%
+  explore_all(
+    target = muestra,
+    ncol   = 3
+  )
+
+# * Exploración con gráfica bivariada ----
+sacarosa %>%
+  explore(
+    target = ph,
+    var    = ph,
+    var2   = muestra
+  )
+
+# * Reporte ----
+sacarosa %>%
+  report(
+    target      = ph,
+    output_dir  = "reporte/",
+    output_file = "explore_plots.html"
+  )
