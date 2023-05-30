@@ -9,6 +9,7 @@ if(!require(gtsummary)){install.packages("gtsummary")}
 if(!require(RcmdrMisc)){install.packages("RcmdrMisc")}
 if(!require(flextable)){install.packages("flextable")}
 if(!require(ggplot2)){install.packages("ggplot2")}
+if(!require(lattice)){install.packages("lattice")}
 
 
 # 1. Importar la tabla de datos -----
@@ -29,14 +30,23 @@ tablaT <- set_caption(tablaT, "Estadísticos de resumen") %>%
   theme_vanilla() %>% 
   save_as_docx(path = "mitabla.docx")
 
-# 4. Box plot por categoría de muestra para pol
+# 4. Box plot por categoría de muestra para pol ------
 attach(sacarosa)
 boxplot(pol~muestra, col="orange")
 
 
-# 5. Histograma por categoría de muestra para pol
+# 5. Histograma por categoría de muestra para pol ------
 ggplot(sacarosa, aes(pol))+
   geom_histogram(col="blue")+
   facet_wrap(~muestra)+
   labs(x="Contenido de pol en %", y="Número de muestras")
 
+# 5a. Alternativa para obtener histogramas ------
+m1<-as.factor(muestra)
+histogram(~pol|m1, col="green", type = "count",
+          xlab = "Contenido de pol en %",
+          ylab = "Número de muestras")
+
+histogram(~pol|m1, col="green", type = "percent",
+          xlab = "Contenido de pol en %",
+          ylab = "Porcentaje de muestras")
