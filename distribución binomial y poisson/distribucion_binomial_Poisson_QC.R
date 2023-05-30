@@ -2,7 +2,7 @@
 # Dr. Ezequiel López
 # http://cete.fausac.gt
 
-# Fundamentos de distribución binomial de probabilidad
+## Fundamentos de distribución binomial de probabilidad
 # En un examen de selección múltiple, con 10 preguntas 
 # con 4 posibles respuestas
 # y una sola de ellas como correcta
@@ -34,4 +34,6 @@ ensayos<-0:10
 plot(ensayos, dbinom(ensayos,size=10, prob=0.25), type = "h", xlab = "Número de éxitos", ylab="Probabilidad")
 # Probabilidad para x=0,n=15, p=0.05
 probf<-dbinom(0,15,0.05); probf
+
+## Fundamentos de la distribución de Poisson
 
