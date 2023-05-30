@@ -43,16 +43,6 @@ plot_histogram(sacarosa)
 box1<-sacarosa[c("muestra","brix", "pol")]
 plot_boxplot(box1, by="muestra")
 
-# Medidas de resumen estadístico por categoría de muestra
-
-resumen<-numSummary(sacarosa[,c("brix"), drop=F], groups=sacarosa$muestra,
-statistics=c("mean","sd", "IQR", "skewness"))
-
-res1<-data.frame(resumen$table)
-tablaT <- flextable(res1)
-tablaT <- set_caption(tablaT, "Estadísticos de resumen") %>% 
-  theme_vanilla() %>% 
-  save_as_docx(path = "mitabla.docx")
 
 # Construir tabla de resumen (ejemplo de mediana e IQR)
 sac1<- sacarosa %>% 
