@@ -51,3 +51,13 @@ lambda <- 17.4
 plot(dpois(x, lambda), type = "h", lwd = 2,
      main = "Gráfica de la distribución de probabilidad",
      ylab = "P(X = x)", xlab = "Número de eventos")
+
+# Calcular la probabilidad de encontrar 20 granos quebrados o menos
+P20menos<-ppois(c(20), lambda=17.4, lower.tail = T); P20menos
+
+# Calcular la probabilidad de encontrar más de 20 granos quebrados
+Pmas20<-ppois(c(20), lambda = 17.4, lower.tail = F); Pmas20
+Pmas20a<-1-P20menos; Pmas20a
+
+# Calcular la probabilidad de encontrar entre 20 a 30 granos quebrados
+P20a30<-ppois(30, lambda=17.4)-ppois(19, lambda=17.4); P20a30
