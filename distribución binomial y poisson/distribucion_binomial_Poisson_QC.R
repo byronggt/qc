@@ -2,7 +2,7 @@
 # Dr. Ezequiel López
 # http://cete.fausac.gt
 
-## Fundamentos de distribución binomial de probabilidad
+## Fundamentos de distribución binomial de probabilidad -----
 # En un examen de selección múltiple, con 10 preguntas 
 # con 4 posibles respuestas
 # y una sola de ellas como correcta
@@ -35,5 +35,19 @@ plot(ensayos, dbinom(ensayos,size=10, prob=0.25), type = "h", xlab = "Número de
 # Probabilidad para x=0,n=15, p=0.05
 probf<-dbinom(0,15,0.05); probf
 
-## Fundamentos de la distribución de Poisson
+## Fundamentos de la distribución de Poisson ------
+# dpois para valores puntuales
+# ppois para valores acumulados
+# qpois para cuantiles
 
+ppois(c(50), lambda=17.4, lower.tail = T)
+tabla.ps=data.frame(Probability=dpois(0:50, lambda = 17.4))
+rownames(tabla.ps) <- 0:50 
+print(tabla.ps)
+
+# Gráfica de la distribución
+x <- 0:50
+lambda <- 17.4
+plot(dpois(x, lambda), type = "h", lwd = 2,
+     main = "Gráfica de la distribución de probabilidad",
+     ylab = "P(X = x)", xlab = "Número de eventos")
