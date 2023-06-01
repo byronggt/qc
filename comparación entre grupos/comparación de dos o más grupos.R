@@ -13,7 +13,7 @@ sacarosa<-read_excel("sacarosa.xlsx")
 # Prueba de hipótesis acerca de la media 
 # Segmentar para Jugo Filtrado Banda
 jfb<-subset(sacarosa, muestra=="Jugo Filtrado Banda")
-t.test(jfb$ph, alternative="g", conf.level=0.95)
+t.test(jfb$ph, alternative="g", mu=7, conf.level=0.95)
 
 # Prueba de hipótesis entre dos medias independientes
 
