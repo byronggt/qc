@@ -18,6 +18,8 @@ P81a83<-P83-P81; P81a83
 # 2. Gráfica de la distribución de probabilidad -----
 
 .x<-seq(80.355, 83.645, length.out=1000)
+plot.new()
+dev.new(10,10)
 plotDistr(.x, dnorm(.x,82,0.5), cdf=F, 
           xlab="dimensión de la pieza",
           ylab="Densidad",
@@ -30,6 +32,8 @@ Pmas835<-pnorm(83.5,82,0.5, lower.tail = F);Pmas835
 
 # 4. Gráfica de la distribución de probabilidad
 .x1<-seq(80.355, 83.645, length.out=1000)
+plot.new()
+dev.new(10,10)
 plotDistr(.x1, dnorm(.x1,82,0.5), cdf=F, 
           xlab="dimensión de la pieza",
           ylab="Densidad",
