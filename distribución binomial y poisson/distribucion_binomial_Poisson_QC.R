@@ -40,6 +40,10 @@ probf<-dbinom(0,15,0.05); probf
 # ppois para valores acumulados
 # qpois para cuantiles
 
+# Se realizó un muestreo de bolsas de arroz para exportación
+# Se encontró una media de 17.4 granos quebrados y
+# se tolera no más de 50 granos quebrados por Kg.
+
 ppois(c(50), lambda=17.4, lower.tail = T)
 tabla.ps=data.frame(Probability=dpois(0:50, lambda = 17.4))
 rownames(tabla.ps) <- 0:50 
@@ -50,7 +54,7 @@ x <- 0:50
 lambda <- 17.4
 plot(dpois(x, lambda), type = "h", lwd = 2,
      main = "Gráfica de la distribución de probabilidad",
-     ylab = "P(X = x)", xlab = "Número de eventos")
+     ylab = "P(X = x)", xlab = "Número de granos quebrados")
 
 # Calcular la probabilidad de encontrar 20 granos quebrados o menos
 P20menos<-ppois(c(20), lambda=17.4, lower.tail = T); P20menos
@@ -61,3 +65,39 @@ Pmas20a<-1-P20menos; Pmas20a
 
 # Calcular la probabilidad de encontrar entre 20 a 30 granos quebrados
 P20a30<-ppois(30, lambda=17.4)-ppois(19, lambda=17.4); P20a30
+
+# Gráfica del segmento de probabilidad que corresponde de 20 a 30
+
+# Antes agregar la siguiente función
+# lambda: media
+# lb: límite inferior de la suma
+# ub: límite superior de la suma
+# col: color
+# lwd: ancho de línea
+
+pois_sum <- function(lambda, lb, ub, col = 4, lwd = 1, ...) {
+  x <- 0:(lambda + lambda * 2)
+  
+  if (missing(lb)) {
+    lb <- min(x)
+  }
+  if (missing(ub)) {
+    ub <- max(x)
+  }
+  
+  plot(dpois(x, lambda = lambda), type = "h", lwd = lwd, ...)
+  
+  if(lb == min(x) & ub == max(x)) {
+    color <- col
+  } else {
+    color <- rep(1, length(x))
+    color[(lb + 1):ub ] <- col
+  }
+  
+  lines(dpois(x, lambda = lambda), type = "h",
+        col =  color, lwd = lwd, ...)
+}
+
+# Gráfico de probabilidad cuando hay entre 20 a 30 granos quebrados
+pois_sum(lambda = 17.4, lb = 19, ub = 30, lwd = 2,
+         ylab = "P(X = x)", xlab = "Número de granos quebrados")
