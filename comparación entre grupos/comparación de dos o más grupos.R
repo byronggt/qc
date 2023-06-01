@@ -6,6 +6,7 @@ if(!require(RcmdrMisc)){install.packages("RcmdrMisc")}
 if(!require(readxl)){install.packages("readxl")}
 if(!require(ggstatsplot)){install.packages("ggstatsplot")}
 if(!require(agricolae)){install.packages("agricolae")}
+if(!require(performance)){install.packages("performance")}
 
 # Importar la tabla de datos
 sacarosa<-read_excel("sacarosa.xlsx")
@@ -47,12 +48,15 @@ ggbetweenstats(sacarosa, x=muestra, y=ph,
 # Anotar que se trata del mismo valor de F que el obtenido antes
 # Además se asume que las varianzas son iguales
 
-anova.ph<-lm(sacarosa$ph~sacarosa$muestra)
+anova.ph<-lm(ph~muestra, data = sacarosa)
 summary(anova.ph)
+plot.new()
+dev.new(10,10)
+check_model(anova.ph)
 
-result.ph<-aov(sacarosa$ph~sacarosa$muestra)
+result.ph<-aov(ph~muestra, data = sacarosa)
 anova(result.ph)
-pr.medias <-LSD.test(result.ph, "sacarosa$muestra",console=TRUE)
+pr.medias <-LSD.test(result.ph, "muestra",console=TRUE)
 
 
 
