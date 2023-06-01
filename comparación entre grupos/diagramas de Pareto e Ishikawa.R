@@ -18,6 +18,7 @@ pareto.chart(defectos, ylab = "Frecuencia de contaminación por coliformes",
              col=heat.colors(length(defectos)))
 
 ## Diagrama de espina de pescado -----
+
 windows(10,7)
 cause.and.effect(
   cause=list(Personal = c("vestimenta", "pre Lavado de manos"),
