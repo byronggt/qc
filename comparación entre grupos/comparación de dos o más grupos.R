@@ -43,7 +43,7 @@ ggbetweenstats(sacarosa, x=muestra, y=ph,
                var.equal = T, plot.type = "box", type = "parametric")
 
 # Comparación mediante prueba de F
-# Análisis de varianza entre muestra
+# Análisis de varianza entre muestras
 # Anotar que se trata del mismo valor de F que el obtenido antes
 # Además se asume que las varianzas son iguales
 
