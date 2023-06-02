@@ -2,6 +2,7 @@
 # Dr. Ezequiel López
 # http://cete.fausac.gt
 
+if(!require(car)){install.packages("car")}
 if(!require(qcc)){install.packages("qcc")}
 if(!require(readxl)){install.packages("readxl")}
 
