@@ -43,7 +43,7 @@ pesos1<-pesos
 
 # Solicitar los gráficos de QQplot e hipótesis
 # Notar que hay 4 posibles distribuciones para ajustar
-# Elegir aquellas con el menor valor de AIC
+# Elegir aquella con el menor valor de AIC
 res11<-fit.cont(data2fit=pesos1) 
 
 ## Instalar la biblioteca qualityTools
