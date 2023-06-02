@@ -8,6 +8,7 @@ if(!require(corrplot)){install.packages("corrplot")}
 if(!require(ggcorrplot)){install.packages("ggcorrplot")}
 if(!require(readxl)){install.packages("readxl")}
 
+# Importar la tabla de datos de "salinidad1.xlsx"
 salinidad<-read_excel("salinidad.xlsx")
 head(salinidad)
 str(salinidad)
