@@ -50,3 +50,10 @@ histogram(~pol|m1, col="green", type = "count",
 histogram(~pol|m1, col="green", type = "percent",
           xlab = "Contenido de pol en %",
           ylab = "Porcentaje de muestras")
+
+# Categorization de variables
+
+sacarosa$ph_categ<- cut(ph, breaks = c(-Inf, 5.5, 7.5, Inf), labels = c("bajo", "medio", "alto"))
+ph_categ
+
+
