@@ -9,6 +9,7 @@ if(!require(gtsummary)){install.packages("gtsummary")}
 if(!require(RcmdrMisc)){install.packages("RcmdrMisc")}
 if(!require(flextable)){install.packages("flextable")}
 if(!require(ggplot2)){install.packages("ggplot2")}
+if(!require(xtable)){install.packages("xtable")}
 if(!require(lattice)){install.packages("lattice")}
 
 
@@ -61,10 +62,12 @@ sacarosa$ph_categ
 myp<-table(sacarosa$muestra,sacarosa$ph_categ); myp
 
 tabf<-as.data.frame.matrix(myp)
-tablaF <- flextable(tabf); tablaF
+tablaF <- flextable(tabf, 
+            col_keys = names(tabf)) # Faltan los nombres de la muestra
 tablaT <- set_caption(tablaF, "Tabla de contingencia") %>% 
   theme_vanilla() %>% 
   save_as_docx(path = "mitabla1.docx")
 
 # Tabla con proporciones
 tablap<-prop.table(myp); tablap
+
