@@ -53,7 +53,18 @@ histogram(~pol|m1, col="green", type = "percent",
 
 # Categorization de variables
 
-sacarosa$ph_categ<- cut(ph, breaks = c(-Inf, 5.5, 7.5, Inf), labels = c("bajo", "medio", "alto"))
-ph_categ
+sacarosa$ph_categ<- cut(sacarosa$ph, breaks = c(-Inf, 5.5, 7.5, Inf), labels = c("bajo", "medio", "alto"))
+sacarosa$ph_categ
 
+## Construir una tabla de contingencia
+# Tabla con frecuencias
+myp<-table(sacarosa$muestra,sacarosa$ph_categ); myp
 
+tabf<-as.data.frame.matrix(myp)
+tablaF <- flextable(tabf); tablaF
+tablaT <- set_caption(tablaF, "Tabla de contingencia") %>% 
+  theme_vanilla() %>% 
+  save_as_docx(path = "mitabla1.docx")
+
+# Tabla con proporciones
+tablap<-prop.table(myp); tablap
