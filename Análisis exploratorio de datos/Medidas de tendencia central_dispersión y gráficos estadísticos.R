@@ -9,10 +9,8 @@ if(!require(gtsummary)){install.packages("gtsummary")}
 if(!require(RcmdrMisc)){install.packages("RcmdrMisc")}
 if(!require(flextable)){install.packages("flextable")}
 if(!require(ggplot2)){install.packages("ggplot2")}
-if(!require(xtable)){install.packages("xtable")}
 if(!require(lattice)){install.packages("lattice")}
 if(!require(rempsyc)){install.packages("rempsyc")}
-
 
 
 # 1. Importar la tabla de datos -----
@@ -73,7 +71,5 @@ tablaT <- set_caption(tablaF, "Tabla de contingencia") %>%
 
 # Tabla con proporciones
 tablap<-prop.table(myp); tablap
-tablap1<-as.data.frame.matrix(tablap); tablap1
-nice_table(tablap1)
-my_table1 <- nice_table(tablap1)
-flextable::save_as_docx(my_table1, path = "nice_tablehere.docx")
+
+
