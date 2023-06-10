@@ -32,8 +32,8 @@ resumen <- sacarosa %>%
   summarise(Media = mean(pol),
             Mediana = median(pol),
             Desviación = sd(pol),
-            Minimo = min(pol),
-            Asimetría = skewness(pol),
+            Mínimo = min(pol),
+            Máximo = max(pol),
             IQR = IQR(pol))
 resumen %>% 
   flextable() %>% 
