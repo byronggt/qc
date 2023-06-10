@@ -73,5 +73,7 @@ tablaT <- set_caption(tablaF, "Tabla de contingencia") %>%
 
 # Tabla con proporciones
 tablap<-prop.table(myp); tablap
-
-
+tablap1<-as.data.frame.matrix(tablap); tablap1
+nice_table(tablap1)
+my_table1 <- nice_table(tablap1)
+flextable::save_as_docx(my_table1, path = "nice_tablehere.docx")
