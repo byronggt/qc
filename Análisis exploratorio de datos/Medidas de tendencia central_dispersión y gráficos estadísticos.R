@@ -11,6 +11,7 @@ if(!require(flextable)){install.packages("flextable")}
 if(!require(ggplot2)){install.packages("ggplot2")}
 if(!require(lattice)){install.packages("lattice")}
 if(!require(rempsyc)){install.packages("rempsyc")}
+if(!require(dplyr)){install.packages("dplyr")}
 
 
 # 1. Importar la tabla de datos -----
@@ -22,14 +23,23 @@ summary(sacarosa)
 
 # 3. Medidas de resumen estadístico por categoría de muestra
 
-resumen<-numSummary(sacarosa[,c("brix"), drop=F], groups=sacarosa$muestra,
+res1<-numSummary(sacarosa[,c("brix"), drop=F], groups=sacarosa$muestra,
                     statistics=c("mean","sd", "IQR", "skewness"))
+res1
 
-res1<-data.frame(resumen$table)
-tablaT <- flextable(res1)
-tablaT <- set_caption(tablaT, "Estadísticos de resumen") %>% 
-  theme_vanilla() %>% 
-  save_as_docx(path = "mitabla.docx")
+resumen <- sacarosa %>%
+  group_by(muestra) %>%
+  summarise(Media = mean(pol),
+            Mediana = median(pol),
+            Desviación = sd(pol),
+            Minimo = min(pol),
+            Asimetría = skewness(pol),
+            IQR = IQR(pol))
+resumen %>% 
+  flextable() %>% 
+  autofit () %>% 
+  save_as_docx(path = "res_med_descriptivas.docx")
+
 
 # 4. Box plot por categoría de muestra para pol ------
 attach(sacarosa)
@@ -62,12 +72,12 @@ sacarosa$ph_categ
 myp<-table(sacarosa$muestra,sacarosa$ph_categ, dnn=c("muestra","categoría de ph")); myp
 addmargins(myp)
 
-tabf<-as.data.frame.matrix(myp); tabf
-nice_table(tabf)
-tablaF <- flextable(tabf, col_keys = names(tabf)); tablaF # Faltan nombres
-tablaT <- set_caption(tablaF, "Tabla de contingencia") %>% 
-  theme_vanilla() %>% 
-  save_as_docx(path = "mitabla1.docx")
+#tabf<-as.data.frame.matrix(myp); tabf
+#nice_table(tabf)
+#tablaF <- flextable(tabf, col_keys = names(tabf)); tablaF # Faltan nombres
+#tablaT <- set_caption(tablaF, "Tabla de contingencia") %>% 
+#  theme_vanilla() %>% 
+#  save_as_docx(path = "mitabla1.docx")
 
 # Tabla con proporciones
 tablap<-prop.table(myp); tablap
