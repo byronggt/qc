@@ -11,6 +11,8 @@ if(!require(flextable)){install.packages("flextable")}
 if(!require(ggplot2)){install.packages("ggplot2")}
 if(!require(xtable)){install.packages("xtable")}
 if(!require(lattice)){install.packages("lattice")}
+if(!require(rempsyc)){install.packages("rempsyc")}
+
 
 
 # 1. Importar la tabla de datos -----
@@ -59,15 +61,17 @@ sacarosa$ph_categ
 
 ## Construir una tabla de contingencia
 # Tabla con frecuencias
-myp<-table(sacarosa$muestra,sacarosa$ph_categ); myp
+myp<-table(sacarosa$muestra,sacarosa$ph_categ, dnn=c("muestra","categoría de ph")); myp
+addmargins(myp)
 
-tabf<-as.data.frame.matrix(myp)
-tablaF <- flextable(tabf, 
-            col_keys = names(tabf)) # Faltan los nombres de la muestra
+tabf<-as.data.frame.matrix(myp); tabf
+nice_table(tabf)
+tablaF <- flextable(tabf, col_keys = names(tabf)); tablaF # Faltan nombres
 tablaT <- set_caption(tablaF, "Tabla de contingencia") %>% 
   theme_vanilla() %>% 
   save_as_docx(path = "mitabla1.docx")
 
 # Tabla con proporciones
 tablap<-prop.table(myp); tablap
+
 
