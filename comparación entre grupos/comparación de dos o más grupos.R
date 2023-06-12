@@ -7,6 +7,7 @@ if(!require(readxl)){install.packages("readxl")}
 if(!require(ggstatsplot)){install.packages("ggstatsplot")}
 if(!require(agricolae)){install.packages("agricolae")}
 if(!require(performance)){install.packages("performance")}
+if(!require(ggplot2)){install.packages("ggplot2")}
 
 # Importar la tabla de datos
 sacarosa<-read_excel("sacarosa.xlsx")
@@ -21,6 +22,16 @@ t.test(jfb$ph, alternative="g", mu=7, conf.level=0.95)
 jugof<-subset(sacarosa,
               muestra=="Jugo Filtrado Banda"|
               muestra=="Jugo Filtrado Rotativo")
+head(jugof)
+
+windows(10,10)
+ggplot(jugof, aes(ph)) +
+  geom_dotplot(aes(fill=muestra), binwidth = 2) +
+  labs(x = "Valores de ph", y = "")
+
+ggplot(jugof, aes(ph)) +
+  geom_dotplot(binwidth = 1.5)
+
 
 boxplot(jugof$ph~jugof$muestra, col="orange",
         xlab="Categoría de jugo",
