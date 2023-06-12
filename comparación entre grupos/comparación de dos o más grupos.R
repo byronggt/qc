@@ -26,11 +26,8 @@ head(jugof)
 
 windows(10,10)
 ggplot(jugof, aes(ph)) +
-  geom_dotplot(aes(fill=muestra), binwidth = 2) +
+  geom_dotplot(aes(fill=muestra), binwidth = 0.5) +
   labs(x = "Valores de ph", y = "")
-
-ggplot(jugof, aes(ph)) +
-  geom_dotplot(binwidth = 1.5)
 
 
 boxplot(jugof$ph~jugof$muestra, col="orange",
@@ -42,6 +39,10 @@ t.test(jugof$ph~jugof$muestra,
        alternative="t", 
        var.equal=T,
        conf.level=0.95)
+
+jfb<-subset(sacarosa,muestra=="Jugo Filtrado Banda")
+jfr<-subset(sacarosa,muestra=="Jugo Filtrado Rotativo")
+var.test(jfb$ph,jfr$ph)
 
 # Usar el comando `ggbetweenstats()` para visualizar los datos
 ggbetweenstats(jugof, x = muestra, y = ph, 
