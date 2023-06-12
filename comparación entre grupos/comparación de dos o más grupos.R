@@ -51,6 +51,12 @@ ggbetweenstats(jugof, x = muestra, y = ph,
 
 ## Comparación de tres o más grupos ---
 
+# Diagramas de caja
+boxplot(sacarosa$ph~sacarosa$muestra
+        , col="orange"
+        , xlab = "Muestra"
+        , ylab = "Valor de ph")
+
 # Comparación gráfica
 ggbetweenstats(sacarosa, x=muestra, y=ph, 
                var.equal = T, plot.type = "box", type = "parametric")
@@ -62,8 +68,7 @@ ggbetweenstats(sacarosa, x=muestra, y=ph,
 
 anova.ph<-lm(ph~muestra, data = sacarosa)
 summary(anova.ph)
-plot.new()
-dev.new(10,10)
+windows(10,10)
 check_model(anova.ph)
 
 result.ph<-aov(ph~muestra, data = sacarosa)
