@@ -14,6 +14,8 @@ cor(salinidad)
 attach(salinidad)
 plot(ce,mg)
 model1<-lm(mg~ce, data=salinidad)
+salinidad$pred_mg<-model1$fitted.values
+salinidad$res_mg<-model1$residuals
 summary(model1)
 windows(10,10)
 check_model(model1)
@@ -60,3 +62,5 @@ check_normality(model5)
 plot(ce,so)
 
 # Ajustar también un modelo potencial
+# Gráfico de ajuste
+effect_plot(model5, pred = ce, interval = TRUE, plot.points = TRUE, x.lab="Conductividad eléctrica", y.lab="Sulfatos")
