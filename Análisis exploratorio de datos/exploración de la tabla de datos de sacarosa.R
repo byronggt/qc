@@ -13,10 +13,11 @@ if(!require(flextable)){install.packages("flextable")}
 if(!require(tidyverse)){install.packages("tidyverse")}
 if(!require(skimr)){install.packages("skimr")}
 if(!require(explore)){install.packages("explore")}
+
 # Ejecutar las siguientes 2 líneas una sola vez
-install.packages("devtools")
-devtools::install_github("agstn/dataxray")
-library(dataxray)
+#install.packages("devtools")
+#devtools::install_github("agstn/dataxray")
+#library(dataxray)
 
 
 # Importar la tabla de datos
@@ -24,8 +25,8 @@ sacarosa<-read_excel("sacarosa.xlsx")
 head(sacarosa)
 
 # Análisis exploratorio general de la tabla de datos
-sacarosa %>% skim()
-sacarosa %>% group_by(muestra) %>% skim()
+#sacarosa %>% skim()
+#sacarosa %>% group_by(muestra) %>% skim()
 
 # Características de la tabla de datos
 introduce(sacarosa)
