@@ -22,6 +22,7 @@ P0<-dbinom(0,10,0.25); P0 # Usar dbinom para valores puntuales de probabilidad
 # Si es cola izquierda es desde el punto fijado hacia abajo
 # Si es cola derecha debe ser un valor abajo del punto de interés
 P6omenos<-pbinom(c(6), size=10, prob=0.25, lower.tail=TRUE); P6omenos
+P6omenos<-pbinom(6,10,0.25,lower.tail = T); P6omenos
 
 # 4. ¿Cuál es la probabilidad de responder de forma correcta 7 preguntas o más?
 # P(X>=7)
@@ -30,6 +31,7 @@ P6omenos<-pbinom(c(6), size=10, prob=0.25, lower.tail=TRUE); P6omenos
 P7omas<-pbinom(6,10,0.25, lower.tail = F); P7omas
 
 # 5. Gráfica de la distribución
+windows(10,10)
 ensayos<-0:10
 plot(ensayos, dbinom(ensayos,size=10, prob=0.25), type = "h", xlab = "Número de éxitos", ylab="Probabilidad")
 # Probabilidad para x=0,n=15, p=0.05
@@ -52,14 +54,14 @@ print(tabla.ps)
 # Gráfica de la distribución
 x <- 0:50
 lambda <- 17.4
-plot(dpois(x, lambda), type = "h", lwd = 2,
+plot(dpois(x, lambda), type = "h", lwd = 4,
      main = "Gráfica de la distribución de probabilidad",
      ylab = "P(X = x)", xlab = "Número de granos quebrados")
 
 # Calcular la probabilidad de encontrar 20 granos quebrados o menos
 P20menos<-ppois(c(20), lambda=17.4, lower.tail = T); P20menos
 
-# Calcular la probabilidad de encontrar más de 20 granos quebrados
+# Calcular la probabilidad de encontrar 21 o más granos quebrados
 Pmas20<-ppois(c(20), lambda = 17.4, lower.tail = F); Pmas20
 Pmas20a<-1-P20menos; Pmas20a
 
