@@ -24,7 +24,7 @@ P0<-dbinom(0,10,0.25); P0 # Usar dbinom para valores puntuales de probabilidad
 P6omenos<-pbinom(c(6), size=10, prob=0.25, lower.tail=TRUE); P6omenos
 
 # 4. ¿Cuál es la probabilidad de responder de forma correcta 7 preguntas o más?
-# P(X<=6)
+# P(X>=7)
 # Si es cola derecha debe ser un valor abajo del punto de interés
 # En este caso, como es 7 el interés, debe solicitarse para 6 y cola derecha
 P7omas<-pbinom(6,10,0.25, lower.tail = F); P7omas
