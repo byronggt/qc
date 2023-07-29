@@ -55,6 +55,10 @@ summary(dist1)
 bootstrapml(dist1, probs = c(0.05, 0.95), reps = 1000)
 detach(alim2)
 
+# Ajuste de distribución normal para glúcidos
+qqPlot(alimentos$glucidos)
+shapiro.test(alimentos$glucidos)
+
 # Prueba del signo acerca de la mediana de indice < 50
 # Ho: mediana signo >= 50
 # Ha: mediana signo < 50
