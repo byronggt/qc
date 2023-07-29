@@ -3,6 +3,7 @@
 # http://cete.fausac.gt
 
 if(!require(RcmdrMisc)){install.packages("RcmdrMisc")}
+if(!require(agricolae)){install.packages("agricolae")}
 if(!require(readxl)){install.packages("readxl")}
 
 # La dimensión de una pieza se distribuye de manera normal con
@@ -78,6 +79,17 @@ sacarosa<-read_excel("sacarosa.xlsx")
 head(sacarosa)
 sac1<-subset(sacarosa, muestra=="Lodo") 
 head(sac1)  
+hist(sac1$ph)
+
+h1<- graph.freq(sac1$ph, col="yellow", frequency =1, xlab="pH", ylab="Número de muestras", main="frecuencia absoluta")
+h2<- graph.freq(sac1$ph, frequency =2 , main="Polígono de frecuencia")
+polygon.freq(h2, col="blue", lwd=2, frequency =2)
+h3<- graph.freq(sac1$ph, col="brown", frequency =3 , main="Gráfico de densidad")
+h4<- graph.freq(sac1$ph, col="blue", frequency =3 , main="Densidad normal", density=4)
+normal.freq(h4, col="red", lty=4,lwd=2, frequency=3)
+dens1<-density(sac1$ph)
+plot(dens1)
+
 # Gráfico de cuantil-cuantil
 qqnorm(sac1$ph)
 qqline(sac1$ph)
