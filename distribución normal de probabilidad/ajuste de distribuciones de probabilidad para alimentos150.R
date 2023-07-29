@@ -26,6 +26,7 @@ qqPlot(kcal)  #Verificar la normalidad
 
 # Ho: La distribución de las kcal es normal
 # Ha: La distribución de las kcal no es normal
+
 shapiro.test(kcal) #Verificar la normalidad
 kcal1<-kcal # Crear un objeto nuevo, para probar ajuste de otras distrib.
 res11<-fit.cont(data2fit=kcal1) # Solicitar los gráficos de QQplot e hipótesis
