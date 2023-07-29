@@ -56,6 +56,7 @@ bootstrapml(dist1, probs = c(0.05, 0.95), reps = 1000)
 detach(alim2)
 
 # Ajuste de distribución normal para glúcidos
+hist(alimentos$glucidos)
 qqPlot(alimentos$glucidos)
 shapiro.test(alimentos$glucidos)
 
