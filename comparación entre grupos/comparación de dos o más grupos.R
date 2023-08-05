@@ -23,6 +23,7 @@ jugof<-subset(sacarosa,
               muestra=="Jugo Filtrado Banda"|
               muestra=="Jugo Filtrado Rotativo")
 head(jugof)
+tail(jugof)
 
 windows(10,10)
 ggplot(jugof, aes(ph)) +
@@ -66,10 +67,10 @@ ggbetweenstats(sacarosa, x=muestra, y=ph,
 # Anotar que se trata del mismo valor de F que el obtenido antes
 # Además se asume que las varianzas son iguales
 
-anova.ph<-lm(ph~muestra, data = sacarosa)
-summary(anova.ph)
-windows(10,10)
-check_model(anova.ph)
+# anova.ph<-lm(ph~muestra, data = sacarosa)
+# summary(anova.ph)
+# windows(10,10)
+# check_model(anova.ph)
 
 result.ph<-aov(ph~muestra, data = sacarosa)
 anova(result.ph)
