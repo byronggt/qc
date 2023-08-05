@@ -12,8 +12,7 @@ suma<-c(28,8,0,6,0)
 coliformes<-data.frame(causa,suma)
 defectos <- coliformes$suma
 names(defectos) <- coliformes$causa 
-plot.new()
-dev.new(10,10)
+windows(10,10)
 pareto.chart(defectos, ylab = "Frecuencia de contaminación por coliformes", 
              col=heat.colors(length(defectos)))
 
