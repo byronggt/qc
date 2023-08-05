@@ -27,5 +27,4 @@ cause.and.effect(
   effect= "contaminación microbiana", 
   title= "Diagrama de causa y efecto"
 )
-dev.off()
 
