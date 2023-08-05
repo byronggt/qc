@@ -14,7 +14,10 @@ sacarosa<-read_excel("sacarosa.xlsx")
 
 # Prueba de hipótesis acerca de la media 
 # Segmentar para Jugo Filtrado Banda
-jfb<-subset(sacarosa, muestra=="Jugo Filtrado Banda")
+jfb<-subset(sacarosa, muestra=="Jugo Filtrado Banda"); jfb
+# Probar la hipótesis de que la media de pH > 7
+# Ho: media < = 7
+# Ha: media > 7
 t.test(jfb$ph, alternative="g", mu=7, conf.level=0.95)
 
 # Prueba de hipótesis entre dos medias independientes
@@ -36,6 +39,9 @@ boxplot(jugof$ph~jugof$muestra, col="orange",
         ylab="Valor de pH")
 
 # Se asume que las varianzas son iguales
+# Ho: media de pH JFB = media pH JFR
+# Ha: media de ph JFB no es igual media pH JFR
+
 t.test(jugof$ph~jugof$muestra, 
        alternative="t", 
        var.equal=T,
@@ -43,6 +49,9 @@ t.test(jugof$ph~jugof$muestra,
 
 jfb<-subset(sacarosa,muestra=="Jugo Filtrado Banda")
 jfr<-subset(sacarosa,muestra=="Jugo Filtrado Rotativo")
+
+# Ho: la varianza de pH JFB = la varianza de pH JFR 
+# Ha: la varianza de pH JFB no es igual la varianza de pH JFR 
 var.test(jfb$ph,jfr$ph)
 
 # Usar el comando `ggbetweenstats()` para visualizar los datos
@@ -59,6 +68,8 @@ boxplot(sacarosa$ph~sacarosa$muestra
         , ylab = "Valor de ph")
 
 # Comparación gráfica
+# Ho: las medias de pH son iguales en todos los grupos
+# Ha: Al menos una media de pH es diferente para los grupos comparados 
 ggbetweenstats(sacarosa, x=muestra, y=ph, 
                var.equal = T, plot.type = "box", type = "parametric")
 
