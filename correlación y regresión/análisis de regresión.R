@@ -26,13 +26,12 @@ check_normality(model1)
 
 plot(log(ce),log(mg))
 model2<-lm(log(mg)~log(ce))
-abline(model2, col="blue", lwd=3)
+abline(model2, pred = mg, col="red", lwd=2)
 summary(model2)
 windows(10,10)
 check_model(model2)
 check_normality(model2)
-plot(log(ce),log(mg))
-abline(model2, pred = mg, col="red", lwd=2)
+plot(ce,mg)
 
 # Convertir el modelo lineal transformado
 # a un modelo de potencia de la forma mg=a*ce^b
