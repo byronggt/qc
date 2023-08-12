@@ -41,23 +41,23 @@ ggpairs(salinidad)
 df<-read_excel("salinidad1.xlsx")
 attach(df)
 
-ggplot(df, aes(x = Ca, y = Mg)) +
+ggplot(df, aes(x = ca, y = mg)) +
   geom_point() +
   stat_ellipse(type = "norm", linetype = 2) # Para asumir una distribución normal multivariante
 
-ggplot(df, aes(x =ce, y = Ca)) +
+ggplot(df, aes(x =ce, y = ca)) +
   geom_point() +
   stat_ellipse(type = "norm", linetype = 3)
 
 # Emplear cor.test
 
-cor.test(Ca,Mg, method = "pearson")
-cor.test(ce,Ca, method = "pearson")
+cor.test(ca,mg, method = "pearson")
+cor.test(ce,ca, method = "pearson")
 
 # matriz de correlación
-mcor<-cor(df)
+mcor<-cor(df); mcor
 
-p.mat <- cor_pmat(mcor) # Calcular los valores de p
+p.mat <- cor_pmat(mcor); p.mat # Calcular los valores de p
 
 ggcorrplot(mcor, hc.order = TRUE,
            type = "lower", p.mat = p.mat)
