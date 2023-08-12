@@ -24,6 +24,11 @@ windows(10,10)
 check_model(model1)
 check_normality(model1)
 
+model1a<-lm(mg~ce-1, data=salinidad)
+summary(model1a)
+windows(10,10)
+check_model(model1a)
+
 plot(log(ce),log(mg))
 model2<-lm(log(mg)~log(ce))
 abline(model2, pred = mg, col="red", lwd=2)
