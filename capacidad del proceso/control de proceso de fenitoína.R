@@ -8,7 +8,7 @@ if(!require(rriskDistributions)){install.packages("rriskDistributions")}
 if(!require(car)){install.packages("car")}
 if(!require(nortest)){install.packages("nortest")}
 if(!require(readxl)){install.packages("readxl")}
-if(!require(readxl)){install.packages("qcc")}
+if(!require(qcc)){install.packages("qcc")}
 
 # Importar la tabla de datos "fenpos" para datos simulados
 # Importar la tabla de datos "fenpos100" para datos reales
