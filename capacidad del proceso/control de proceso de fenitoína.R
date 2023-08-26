@@ -104,6 +104,7 @@ pesos1<-pesos
 # Solicitar los gráficos de QQplot e hipótesis
 # Notar que hay 4 posibles distribuciones para ajustar
 # Elegir aquella con el menor valor de AIC
+# Se trata de la distribución logística
 res11<-fit.cont(data2fit=pesos1) 
 
 ## Instalar la biblioteca qualityTools
