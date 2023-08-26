@@ -108,8 +108,8 @@ res11<-fit.cont(data2fit=pesos1)
 
 ## Instalar la biblioteca qualityTools
 # Debido a que es antigua, se requiere atención
-if(!require(remotes)){install.packages("remotes")}
-install_version("qualityTools", version = "1.55")
+#if(!require(remotes)){install.packages("remotes")}
+#install_version("qualityTools", version = "1.55")
 library(qualityTools)
 str(fenit1)
 
