@@ -86,7 +86,7 @@ boxplot(pesos ~ muestra, col="orange")
 
 # Gráfico de dispersión para las 20 muestras
 plot(muestra, pesos, cex=0.7)  
-lines(tapply(pesos,muestra,mean, color="blue")) # Agregar una línea sobre la media de fenitoina
+lines(tapply(pesos,muestra,mean), col="red", lwd=3) # Agregar una línea sobre la media de fenitoina
 dim(fenit1)  # Dimensionalidad de la tabla de datos
 fenit1a <- qcc.groups(pesos,muestra) # Agrupación de muestras
 
