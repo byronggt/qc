@@ -32,7 +32,7 @@ B <- OC2c(20, 1, pd=seq(0,.30,.01),type="b")
 # Establecer AQL para un alfa=0.20, es decir Beta=0.8
 # Graficar ambas curvas en el mismo gráfico --------
 
-pd<-seq(0,.30,.02)
+pd<-seq(0,.30,.01)
 plot(pd,A@paccept, type="l", col=1, xlab="Porcentaje de defectuosos", ylab="Probabilidad de aceptar el lote" )
 lines(pd,B@paccept, type="l", col=2)
 legend(.15,.95,c("A","B"),lty=c(1,2,4), col=c(1,2,4))
