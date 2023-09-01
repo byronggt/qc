@@ -14,12 +14,12 @@ p.rechazar<-1-p.aceptar; p.rechazar
 
 # Curva de operación n=15 y c=0 -----
 
-x <- OC2c(15, 0, type="b")
-x
+x <- OC2c(15, 0, type="b"); x
+
 summary(x, full=TRUE)
 plot(x, xlim = c(0, 0.3), col="red")
 grid()
-abline(h = 0.46, v = 0.05, col = "blue", lty = 3)
+abline(h = 0.46, v = 0.05, col = "blue", lty = 4)
 
 # Curva de operación n=30 y c=2 p=0.08 ------
 
