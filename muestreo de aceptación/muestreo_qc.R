@@ -5,6 +5,8 @@
 if(!require(AcceptanceSampling)){install.packages("AcceptanceSampling")}
 if(!require(readxl)){install.packages("readxl")}
 
+# Probabilidad de aceptar el lote con n=15 y c=0
+p.aceptar<-dbinom(0,15,0.05); p.aceptar
 
 # Curva de operación n=15 y c=0 -----
 
