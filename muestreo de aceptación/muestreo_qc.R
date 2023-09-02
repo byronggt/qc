@@ -23,12 +23,12 @@ abline(h = 0.46, v = 0.05, col = "blue", lty = 4)
 
 # Curva de operación n=30 y c=2 p=0.08 ------
 
-y <- OC2c(30, 2, type="b")
-y
+y <- OC2c(30, 2, type="b"); y
+
 summary(y, full=TRUE)
 plot(y, xlim = c(0, 0.40), col="red")
 grid()
-abline(h = 0.57, v = 0.08, col = "blue", lty = 3)
+abline(h = 0.57, v = 0.08, col = "blue", lty = 4)
 
 # Curvas de operación para A y B -------
 
