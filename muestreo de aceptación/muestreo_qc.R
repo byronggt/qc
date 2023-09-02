@@ -36,11 +36,10 @@ abline(h = 0.57, v = 0.08, col = "blue", lty = 4)
 # p(aceptar con 4%) = 0.88 ==> p(rechazo) = 0.12
 # p(aceptar con 16%) = 0.12 ==> p(rechazo) = 0.88
 
-plot(y, xlim = c(0, 0.40), col="red")
-grid()
-abline(h = 0.88, v = 0.04, col = "blue", lty = 4)
-abline(h = 0.12, v = 0.16, col = "green", lty = 4)
-
+windows(10,10)
+plot(y, xaxp = c(0, 1, 100 ), col="red")
+abline(h = 0.88, v = 0.04, col = "blue", lty = 5)
+abline(h = 0.12, v = 0.16, col = "orange", lty = 5)
 
 
 # Curvas de operación para A y B -------
