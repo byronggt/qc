@@ -30,6 +30,19 @@ plot(y, xlim = c(0, 0.40), col="red")
 grid()
 abline(h = 0.57, v = 0.08, col = "blue", lty = 4)
 
+# Riesgo del productor (alfa) y
+# Riesgo del consumidor (beta) para n=30 y c=2
+# con "p" de 4% y 16% 
+# p(aceptar con 4%) = 0.88 ==> p(rechazo) = 0.12
+# p(aceptar con 16%) = 0.12 ==> p(rechazo) = 0.88
+
+plot(y, xlim = c(0, 0.40), col="red")
+grid()
+abline(h = 0.88, v = 0.04, col = "blue", lty = 4)
+abline(h = 0.12, v = 0.16, col = "green", lty = 4)
+
+
+
 # Curvas de operación para A y B -------
 
 A <- OC2c(50, 2, pd=seq(0,.30,.01), type="b")
