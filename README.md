@@ -1,5 +1,5 @@
 # QC
 # Análisis estadístico dentro de los sistemas de calidad 
-# V. 2023
+# V. 2024
 # Dr. Byron González
-# http://cete.fausac.gt
+# http://byrong.cc
