@@ -1,6 +1,5 @@
 # Dr. Byron González
-# Dr. Ezequiel López
-# http://cete.fausac.gt
+# http://byrong.cc
 
 ## Fundamentos de distribución binomial de probabilidad -----
 # En un examen de selección múltiple, con 10 preguntas 
