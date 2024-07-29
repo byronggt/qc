@@ -1,6 +1,5 @@
 # Dr. Byron González
-# Dr. Ezequiel López
-# http://cete.fausac.gt
+# http://byrong.cc
 
 if(!require(RcmdrMisc)){install.packages("RcmdrMisc")}
 if(!require(readxl)){install.packages("readxl")}
