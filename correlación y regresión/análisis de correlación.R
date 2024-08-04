@@ -1,6 +1,5 @@
 # Dr. Byron González
-# Dr. Ezequiel López
-# http://cete.fausac.gt
+# http://byrong.cc
 
 # Colocar en memoria las bibliotecas a necesitar
 
