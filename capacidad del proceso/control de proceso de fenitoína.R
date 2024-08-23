@@ -1,6 +1,5 @@
 # Dr. Byron González
-# Dr. Ezequiel López
-# http://cete.fausac.gt
+# http://byrong.cc
 # IMPORTANTE: Emplear desde el inicio 
 # la versión de R 3.6.3 para el paquete qualityTools
 
