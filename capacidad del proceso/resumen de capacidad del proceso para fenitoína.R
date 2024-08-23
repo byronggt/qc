@@ -1,5 +1,5 @@
 # Dr. Byron González
-# http://www.byrong.tk 
+# http://byrong.cc 
 
 if(!require(readxl)){install.packages("readxl")}
 if(!require(qcc)){install.packages("qcc")}
