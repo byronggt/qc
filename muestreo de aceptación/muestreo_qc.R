@@ -1,6 +1,6 @@
 
 # Dr. Byron González
-# http://cete.fausac.gt
+# http://byrong.cc
 
 if(!require(AcceptanceSampling)){install.packages("AcceptanceSampling")}
 if(!require(readxl)){install.packages("readxl")}

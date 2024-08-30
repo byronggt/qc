@@ -20,7 +20,7 @@ summary(fenit)
 attach(fenit)
 head(fenit)
 
-# Diagramas de caja para la 20 muestras
+# Diagramas de caja para las 20 muestras
 boxplot(pesos ~ muestra, col="orange")
 
 # Gráfico de dispersión para las 20 muestras
